@@ -1,21 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { type VideoCardProps } from "../types";
 
-type VideoCardProps = {
-  id: string;
-  thumbnail: string; // fix spelling
-  title: string;
-  channel: string;
-  views: string;
-  published: string; // match data
-  videoUrl: string;
-  tags: string[];
-  time: string;
-  comments: {
-    name: string;
-    date: string;
-    comment: string;
-  }[];
-};
 
 const VideoCard = ({
   id,

@@ -3,27 +3,11 @@ import { type FC } from "react";
 import { PlayerOnly } from "./PlayerOnly";
 import VideoDetails from "./VideoDetails";
 import Comments from "./Comments";
+import { type VideoCardProps } from "../../types";
 
-
-interface VideoType  {
-  id: string;
-  thumbnail: string;    // fix spelling
-  title: string;
-  channel: string;
-  views: string;
-  published: string;    // match data
-  videoUrl: string;
-  tags: string[];
-  time: string;
-  comments: {
-    name: string;
-    date: string;
-    comment: string;
-  }[];
-}
 
 interface VideoPlayerProps {
-  video: VideoType
+  video: VideoCardProps
 }
 
 const VideoPlayer:FC<VideoPlayerProps> = ({video}) => {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { type VideoDetailsProps } from "../../types";
 
 import {
   HiOutlineBell,
@@ -11,12 +12,7 @@ import {
 } from "react-icons/hi";
 import { HiOutlineArrowTrendingUp } from "react-icons/hi2";
 
-interface VideoDetailsProps {
-  title: string;
-  channel: string;
-  views: string;
-  published: string;
-}
+
 const VideoDetails = ({
   title,
   channel,

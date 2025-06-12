@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import VideoCard from "./VideoCard";
+import VideoCard from "../components/VideoCard";
 import { mockVideos } from "../data/mockVideos";
-import VideoTags from './watch/VideoTags';
-import VideoSkeleton from './VideoSkeleton';
+import VideoTags from '../components//watch/VideoTags';
+import VideoSkeleton from '../components/VideoSkeleton';
 
 
 const useReloadOnReconnect = () => {

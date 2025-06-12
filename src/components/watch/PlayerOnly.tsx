@@ -1,7 +1,5 @@
-interface PlayerProps {
-  title: string;
-  videoUrl: string;
-}
+import { type PlayerProps } from "../../types"
+
 export const PlayerOnly = ({ title, videoUrl }: PlayerProps) => {
   return (
     <div className= "h-[455px] w-full mb-4" >
