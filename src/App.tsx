@@ -1,8 +1,12 @@
-import React from 'react'
+import { ThemeProvider } from "./context/AnotherContext"
+import HomePage from "./pages/HomePage"
+
 
 const App = () => {
   return (
-    <div>App </div>
+    <ThemeProvider>
+      <HomePage />
+    </ThemeProvider>
   )
 }
 
