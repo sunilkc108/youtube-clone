@@ -34,10 +34,3 @@ const useRelatedVideos = () => {
 };
 
 export default useRelatedVideos;
-
-// const useRelatedVideos = () => {
-//     const { id } = useParams()
-//     const fetchTags = useFetch<Video[]>(() => fetchVideoTagsById(id!))
-//     console.log(fetchTags, 'fetch tags');
-
-// }

@@ -13,7 +13,7 @@ const VideoContext = createContext<{
   dispatch: Dispatch<any>;
 }>({ state: initialState, dispatch: () => null });
 
-export const VideoProvier = ({ children }: { children: ReactNode }) => {
+export const VideoProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(videoReducer, initialState);
 
   return (

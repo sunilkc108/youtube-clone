@@ -14,7 +14,7 @@ export const fetchPopularVideos = async (): Promise<Video[]> => {
   return res.data.items;
 };
 
-export const searchVideos = async (query: string) => {
+export const searchVideos = async (query: string): Promise<Video[]> => {
   const res = await axiosInstance.get("search", {
     params: {
       part: "snippet",
@@ -24,7 +24,20 @@ export const searchVideos = async (query: string) => {
     },
   });
 
-  return res.data.items;
+  const searchItems = res.data.items;
+
+  // Extract all videoIds from the search response
+  const videoIds = searchItems.map((item: any) => item.id.videoId).join(",");
+
+  // Now get full video details (including statistics)
+  const detailsRes = await axiosInstance.get("videos", {
+    params: {
+      part: "snippet,statistics",
+      id: videoIds,
+    },
+  });
+
+  return detailsRes.data.items;
 };
 
 export const fetchVideoById = async (id: string): Promise<Video> => {

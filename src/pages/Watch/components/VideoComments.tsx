@@ -79,7 +79,7 @@ const VideoComments = ({ comments: initialComments }: VideoCommentsProps) => {
       snippet: {
         topLevelComment: {
           snippet: {
-            authorDisplayName: "Amit",
+            authorDisplayName: "Amit",  
             textDisplay: newComment.trim(),
             publishedAt: new Date().toISOString(),
           },
