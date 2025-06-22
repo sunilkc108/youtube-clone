@@ -5,15 +5,21 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { FaX } from "react-icons/fa6";
 import useClickOutside from "../../hooks/useClickOutside";
 import useSuggestions from "../../hooks/useSuggestions";
+import { useAuthContext } from "../../global-state/context/auth/authContext";
+import GoogleLoginButton from "../../pages/Login/components/auth/GoogleLoginButton";
+import { logout } from "../../utils/logut";
 
 const Header = () => {
+  const { state: authState, dispatch } = useAuthContext();
+  const isLoggedIn = !!authState.user;
+  const user = authState?.user;
+
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setshowSuggestions] = useState(false);
   const [showNoti, setshowNoti] = useState(false);
   const notiRef = useRef<HTMLDivElement>(null);
   const { data, loading } = useSuggestions(input);
-  // if (!loading) console.log(data, "dataaa");
 
   const navigate = useNavigate();
 
@@ -136,9 +142,21 @@ const Header = () => {
             </div>
           )}
         </div>
-        <div className="w-8 h-8 bg-purple-600 rounded-full text-white flex items-center justify-center cursor-pointer">
-          <span>A </span>
-        </div>
+        {isLoggedIn && user ? (
+          <div className="relative group">
+            <div className="w-8 h-8 bg-purple-600 rounded-full text-white flex items-center justify-center cursor-pointer relative">
+              <span>{user?.name.charAt(0).toUpperCase()}</span>
+            </div>
+            <button
+              onClick={() => logout(dispatch)}
+              className={`px-4 py-2 bg-white text-black rounded-lg shadow-lg absolute top-8 right-0 border border-gray-100 hidden group-hover:block cursor-pointer`}
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <GoogleLoginButton />
+        )}
       </div>
     </header>
   );

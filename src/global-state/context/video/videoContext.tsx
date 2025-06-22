@@ -1,12 +1,13 @@
 import {
+  useEffect,
   createContext,
   useContext,
   useReducer,
   type Dispatch,
   type ReactNode,
 } from "react";
-import { videoReducer } from "../reducer/videoReducer";
-import { type VideoState, initialState } from "../reducer/videoReducer";
+import { videoReducer } from "../../reducer/videoReducer";
+import { type VideoState, initialState } from "../../reducer/videoReducer";
 
 const VideoContext = createContext<{
   state: VideoState;
@@ -23,4 +24,4 @@ export const VideoProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useVideoContext = () => useContext(VideoContext)
+export const useVideoContext = () => useContext(VideoContext);
